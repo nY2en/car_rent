@@ -14,6 +14,7 @@ const Catalog = () => {
   const dispatch = useDispatch();
 
   const data = useSelector(select.Cars);
+  const isLoading = useSelector(select.IsLoading);
 
   useEffect(() => {
     dispatch(API.fetchCars());
@@ -21,8 +22,12 @@ const Catalog = () => {
 
   return (
     <>
-      <CarList data={data} count={count} />
-      <LoadMoreBtn setCount={setCount} />
+      {!isLoading && (
+        <>
+          <CarList data={data} count={count} />
+          <LoadMoreBtn setCount={setCount} />
+        </>
+      )}
     </>
   );
 };
