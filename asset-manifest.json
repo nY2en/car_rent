@@ -1,19 +1,31 @@
 {
   "files": {
-    "main.css": "/car_rent/static/css/main.7acaea2f.css",
-    "main.js": "/car_rent/static/js/main.f9b66b2f.js",
+    "main.css": "/car_rent/static/css/main.4213b930.css",
+    "main.js": "/car_rent/static/js/main.79814ef3.js",
     "static/js/859.cd8823bd.chunk.js": "/car_rent/static/js/859.cd8823bd.chunk.js",
-    "static/js/77.3eae508d.chunk.js": "/car_rent/static/js/77.3eae508d.chunk.js",
+    "static/js/68.18a48126.chunk.js": "/car_rent/static/js/68.18a48126.chunk.js",
     "static/js/242.ee8d7f5c.chunk.js": "/car_rent/static/js/242.ee8d7f5c.chunk.js",
+    "static/media/manrope-latin-400-normal.woff": "/car_rent/static/media/manrope-latin-400-normal.ae27a083a6bc50bf2d02.woff",
+    "static/media/manrope-latin-400-normal.woff2": "/car_rent/static/media/manrope-latin-400-normal.2cfae0fb4662deefa552.woff2",
+    "static/media/manrope-latin-ext-400-normal.woff": "/car_rent/static/media/manrope-latin-ext-400-normal.5294a5e17770b5a43e7c.woff",
+    "static/media/manrope-cyrillic-400-normal.woff": "/car_rent/static/media/manrope-cyrillic-400-normal.46bdadb06336612c1c8f.woff",
+    "static/media/manrope-latin-ext-400-normal.woff2": "/car_rent/static/media/manrope-latin-ext-400-normal.9408d54f42fd8adee645.woff2",
+    "static/media/manrope-cyrillic-400-normal.woff2": "/car_rent/static/media/manrope-cyrillic-400-normal.18b8749c8a2e81c91aa3.woff2",
+    "static/media/manrope-greek-400-normal.woff": "/car_rent/static/media/manrope-greek-400-normal.aec6f4d3a6a573da1269.woff",
+    "static/media/manrope-vietnamese-400-normal.woff": "/car_rent/static/media/manrope-vietnamese-400-normal.3d3ab30bd33b1f448757.woff",
+    "static/media/manrope-greek-400-normal.woff2": "/car_rent/static/media/manrope-greek-400-normal.d9fa2c702d76a9760e1b.woff2",
+    "static/media/manrope-vietnamese-400-normal.woff2": "/car_rent/static/media/manrope-vietnamese-400-normal.4bb1be8af765fce74e9b.woff2",
+    "static/media/manrope-cyrillic-ext-400-normal.woff": "/car_rent/static/media/manrope-cyrillic-ext-400-normal.5a9a4bd3614b08ffc295.woff",
+    "static/media/manrope-cyrillic-ext-400-normal.woff2": "/car_rent/static/media/manrope-cyrillic-ext-400-normal.a26a46564e052e1282fa.woff2",
     "index.html": "/car_rent/index.html",
-    "main.7acaea2f.css.map": "/car_rent/static/css/main.7acaea2f.css.map",
-    "main.f9b66b2f.js.map": "/car_rent/static/js/main.f9b66b2f.js.map",
+    "main.4213b930.css.map": "/car_rent/static/css/main.4213b930.css.map",
+    "main.79814ef3.js.map": "/car_rent/static/js/main.79814ef3.js.map",
     "859.cd8823bd.chunk.js.map": "/car_rent/static/js/859.cd8823bd.chunk.js.map",
-    "77.3eae508d.chunk.js.map": "/car_rent/static/js/77.3eae508d.chunk.js.map",
+    "68.18a48126.chunk.js.map": "/car_rent/static/js/68.18a48126.chunk.js.map",
     "242.ee8d7f5c.chunk.js.map": "/car_rent/static/js/242.ee8d7f5c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.f9b66b2f.js"
+    "static/css/main.4213b930.css",
+    "static/js/main.79814ef3.js"
   ]
 }
