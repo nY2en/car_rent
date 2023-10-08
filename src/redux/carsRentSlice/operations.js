@@ -7,8 +7,7 @@ const fetchCars = createAsyncThunk(
   'cars/fetchAll',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/rent');
-      console.log(response);
+      const response = await axios.get('/cars');
 
       return response.data;
     } catch (error) {

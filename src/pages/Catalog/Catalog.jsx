@@ -1,21 +1,28 @@
 import { useDispatch } from 'react-redux';
 import API from 'redux/carsRentSlice/operations';
+import CarList from 'components/CarList/CarList';
+import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import LoadMoreBtn from 'components/LoadMoreBtn';
+
+import { useEffect } from 'react';
 
 const Catalog = () => {
   const dispatch = useDispatch();
 
-  dispatch(API.fetchCars());
+  const data = useSelector(state => state.carsRent.cars);
+
+  const [count, setCount] = useState(7);
+
+  useEffect(() => {
+    dispatch(API.fetchCars());
+  }, [dispatch]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      Catalog
-    </div>
+    <>
+      <CarList data={data} count={count} />
+      <LoadMoreBtn setCount={setCount} />
+    </>
   );
 };
 
