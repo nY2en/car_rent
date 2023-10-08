@@ -5,6 +5,7 @@ export const Li = styled.li`
 `;
 
 export const Img = styled.div`
+  position: relative;
   width: 274px;
   height: 269px;
 
@@ -22,6 +23,19 @@ export const Img = styled.div`
   background-position: center;
 
   border-radius: 14px;
+`;
+
+export const ButtonSvgWrapper = styled.button`
+  position: absolute;
+
+  top: 14px;
+  right: 5%;
+  width: 18px;
+  height: 18px;
+`;
+
+export const Svg = styled.svg`
+  fill: none;
 `;
 
 export const Div = styled.div`
