@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import Modal from 'components/Modal/Modal';
 import {
   Li,
   Img,
@@ -26,29 +28,50 @@ const CarListItem = ({ data, index }) => {
   const city = formatData(address)[0];
   const country = formatData(address)[1];
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleBtnClick = () => {
+    setIsOpen(prevState => !prevState);
+  };
+
   return (
     <Li>
-      <Img img={img}></Img>
-      <Div>
-        <P>
-          {make} {index < 3 && <Span>{model}</Span>}, {year}
-        </P>
-        <P>{rentalPrice}</P>
-      </Div>
-      <Ul>
-        <LiInfo>{city}</LiInfo>
-        <SpanInfo></SpanInfo>
-        <LiInfo>{country}</LiInfo>
-        <SpanInfo></SpanInfo>
-        <LiInfo>{rentalCompany}</LiInfo>
-        <SpanInfo></SpanInfo>
-        <LiInfo>{type}</LiInfo>
-        <SpanInfo></SpanInfo>
-        <LiInfo>{model}</LiInfo>
-        <SpanInfo></SpanInfo>
-        <LiInfo>{id}</LiInfo>
-      </Ul>
-      <Button>Learn more</Button>
+      <>
+        <Img img={img}></Img>
+        <Div>
+          <P>
+            {make} {index < 3 && <Span>{model}</Span>}, {year}
+          </P>
+          <P>{rentalPrice}</P>
+        </Div>
+        <Ul>
+          <LiInfo>{city}</LiInfo>
+
+          <SpanInfo></SpanInfo>
+
+          <LiInfo>{country}</LiInfo>
+
+          <SpanInfo></SpanInfo>
+
+          <LiInfo>{rentalCompany}</LiInfo>
+
+          <SpanInfo></SpanInfo>
+
+          <LiInfo>{type}</LiInfo>
+
+          <SpanInfo></SpanInfo>
+
+          <LiInfo>{model}</LiInfo>
+
+          <SpanInfo></SpanInfo>
+
+          <LiInfo>{id}</LiInfo>
+        </Ul>
+
+        <Button onClick={handleBtnClick}>Learn more</Button>
+      </>
+
+      {isOpen && <Modal toggle={setIsOpen}>{model}</Modal>}
     </Li>
   );
 };
