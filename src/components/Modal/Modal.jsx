@@ -28,8 +28,31 @@ const Modal = ({ children, toggle }) => {
   };
 
   return createPortal(
-    <Backdrop onClick={handleOverlayClick}>
-      <ContentWrapper>{children}</ContentWrapper>
+    <Backdrop
+      onClick={handleOverlayClick}
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+        transition: {
+          duration: 0.3,
+        },
+      }}
+    >
+      <ContentWrapper
+        initial={{
+          scale: 1.2,
+        }}
+        animate={{
+          scale: 1,
+          transition: {
+            duration: 0.3,
+          },
+        }}
+      >
+        {children}
+      </ContentWrapper>
     </Backdrop>,
     modalRoot
   );
