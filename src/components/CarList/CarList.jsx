@@ -1,4 +1,4 @@
-import CarListItem from 'components/CarListItem/CarListItem';
+import CarListItem from 'components/CarListItem';
 
 import { Ul } from './CarList.styled';
 

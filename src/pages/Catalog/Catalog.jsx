@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import API from 'redux/carsRentSlice/operations';
-import CarList from 'components/CarList/CarList';
+import CarList from 'components/CarList/';
 import LoadMoreBtn from 'components/LoadMoreBtn';
 import select from 'redux/carsRentSlice/selectors';
 
