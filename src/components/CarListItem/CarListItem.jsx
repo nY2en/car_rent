@@ -13,7 +13,6 @@ import {
 } from './CarListItem.styled';
 
 const CarListItem = ({ data, index }) => {
-  console.log(data);
   const {
     img,
     make,
@@ -29,6 +28,10 @@ const CarListItem = ({ data, index }) => {
   const country = formatData(address)[1];
 
   const [isOpen, setIsOpen] = useState(false);
+
+  isOpen
+    ? (document.body.style = 'overflow: hidden')
+    : (document.body.style = 'overflow: auto');
 
   const handleBtnClick = () => {
     setIsOpen(prevState => !prevState);
