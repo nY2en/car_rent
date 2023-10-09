@@ -8,20 +8,19 @@ const carsRentSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  extraReducers: {
-    [API.fetchCars.pending]: state => {
+  extraReducers: builder => {
+    builder.addCase(API.fetchCars.pending, state => {
       state.error = false;
       state.isLoading = true;
-    },
-
-    [API.fetchCars.fulfilled]: (state, action) => {
+    });
+    builder.addCase(API.fetchCars.fulfilled, (state, action) => {
       state.cars = action.payload;
       state.isLoading = false;
-    },
-    [API.fetchCars.rejected]: state => {
+    });
+    builder.addCase(API.fetchCars.rejected, state => {
       state.error = true;
       state.isLoading = false;
-    },
+    });
   },
 });
 
