@@ -1,18 +1,29 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import API from 'redux/carsRentSlice/operations';
 import CarList from 'components/CarList/';
 import LoadMoreBtn from 'components/LoadMoreBtn';
-import select from 'redux/carsRentSlice/selectors';
+import { selectCars, selectIsLoading } from 'redux/carsRentSlice/selectors';
+import { selectFavoriteCars } from 'redux/favoriteCarsSlice/selectors';
 
 const Catalog = () => {
   const [count, setCount] = useState(7);
 
   const dispatch = useDispatch();
 
-  const data = useSelector(select.Cars);
-  const isLoading = useSelector(select.IsLoading);
+  const data = useSelector(selectCars);
+  const isLoading = useSelector(selectIsLoading);
+  const favorite = useSelector(selectFavoriteCars);
+
+  const updatedArr = [...data];
+
+  if (favorite.cars.length) {
+    for (const key of favorite.cars) {
+      const idx = data.findIndex(el => el.id === key.id);
+
+      updatedArr.splice(idx, 1, key);
+    }
+  }
 
   useEffect(() => {
     dispatch(API.fetchCars());
@@ -22,7 +33,7 @@ const Catalog = () => {
     <>
       {!isLoading && (
         <>
-          <CarList data={data} count={count} />
+          <CarList data={updatedArr} count={count} />
           <LoadMoreBtn setCount={setCount} />
         </>
       )}

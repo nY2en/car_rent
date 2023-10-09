@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Modal from 'components/Modal/Modal';
 import {
   Li,
@@ -14,6 +15,7 @@ import {
   SpanInfo,
 } from './CarListItem.styled';
 import formatArrayData from 'utils/formatArrayData';
+import { addCar, removeCar } from 'redux/favoriteCarsSlice/actions';
 
 const CarListItem = ({ data, index }) => {
   const {
@@ -26,12 +28,15 @@ const CarListItem = ({ data, index }) => {
     rentalCompany,
     type,
     id,
+    favorite = null,
   } = data;
   const city = formatArrayData(address)[0];
   const country = formatArrayData(address)[1];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(favorite);
+
+  const dispatch = useDispatch();
 
   isOpen
     ? (document.body.style = 'overflow: hidden')
@@ -48,6 +53,13 @@ const CarListItem = ({ data, index }) => {
           <ButtonSvgWrapper
             onClick={() => {
               setChecked(prevState => !prevState);
+
+              if (checked) {
+                dispatch(removeCar(data.id));
+                return;
+              }
+
+              dispatch(addCar({ ...data, favorite: !checked }));
             }}
           >
             <Svg

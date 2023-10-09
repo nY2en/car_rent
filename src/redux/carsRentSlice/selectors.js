@@ -1,7 +1,3 @@
-const Cars = state => state.carsRent.cars;
+export const selectCars = state => state.carsRent.cars;
 
-const IsLoading = state => state.carsRent.isLoading;
-
-const select = { Cars, IsLoading };
-
-export default select;
+export const selectIsLoading = state => state.carsRent.isLoading;
