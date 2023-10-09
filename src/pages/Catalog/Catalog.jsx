@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import API from 'redux/carsRentSlice/operations';
 import CarList from 'components/CarList/';
 import LoadMoreBtn from 'components/LoadMoreBtn';
-import { selectCars, selectIsLoading } from 'redux/carsRentSlice/selectors';
-import { selectFavoriteCars } from 'redux/favoriteCarsSlice/selectors';
+import {
+  selectCars,
+  selectIsLoading,
+  selectFavoriteCars,
+} from 'redux/carsRentSlice/selectors';
 
 const Catalog = () => {
   const [count, setCount] = useState(7);
@@ -17,8 +20,8 @@ const Catalog = () => {
 
   const updatedArr = [...data];
 
-  if (favorite.cars.length) {
-    for (const key of favorite.cars) {
+  if (favorite.length > 0) {
+    for (const key of favorite) {
       const idx = data.findIndex(el => el.id === key.id);
 
       updatedArr.splice(idx, 1, key);

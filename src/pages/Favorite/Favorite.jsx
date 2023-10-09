@@ -1,14 +1,14 @@
 import { useSelector } from 'react-redux';
 import CarList from 'components/CarList';
-import { selectFavoriteCars } from 'redux/favoriteCarsSlice/selectors';
+import { selectFavoriteCars } from 'redux/carsRentSlice/selectors';
 
 const Favorite = () => {
-  const data = useSelector(selectFavoriteCars);
+  const favorite = useSelector(selectFavoriteCars);
 
   return (
     <>
-      {data.cars.length > 0 ? (
-        <CarList data={data.cars} count={7} />
+      {favorite.length > 0 ? (
+        <CarList data={favorite}  />
       ) : (
         <div>favorite list is empty</div>
       )}

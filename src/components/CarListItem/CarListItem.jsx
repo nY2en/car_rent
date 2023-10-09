@@ -15,7 +15,7 @@ import {
   SpanInfo,
 } from './CarListItem.styled';
 import formatArrayData from 'utils/formatArrayData';
-import { addCar, removeCar } from 'redux/favoriteCarsSlice/actions';
+import { addCar, removeCar } from 'redux/carsRentSlice/actions';
 
 const CarListItem = ({ data, index }) => {
   const {
