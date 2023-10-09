@@ -5,18 +5,19 @@ import Header from 'components/Header';
 
 export const SharedLayout = () => {
   return (
-    <Container>
+    <>
       <Header />
+      <Container>
+        <main>
+          <Section>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Outlet />
+            </Suspense>
+          </Section>
+        </main>
 
-      <main>
-        <Section>
-          <Suspense fallback={<div>Loading...</div>}>
-            <Outlet />
-          </Suspense>
-        </Section>
-      </main>
-
-      <footer></footer>
-    </Container>
+        <footer></footer>
+      </Container>
+    </>
   );
 };

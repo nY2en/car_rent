@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 export const Li = styled.li`
   margin: 24px 14px;
@@ -25,7 +26,7 @@ export const Img = styled.div`
   border-radius: 14px;
 `;
 
-export const ButtonSvgWrapper = styled.button`
+export const ButtonSvgWrapper = styled(motion.button)`
   position: absolute;
 
   top: 14px;
@@ -34,8 +35,9 @@ export const ButtonSvgWrapper = styled.button`
   height: 18px;
 `;
 
-export const Svg = styled.svg`
+export const Svg = styled(motion.svg)`
   fill: none;
+  stroke: #fff;
 `;
 
 export const Div = styled.div`

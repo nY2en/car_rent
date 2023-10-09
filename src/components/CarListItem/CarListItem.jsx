@@ -51,6 +51,12 @@ const CarListItem = ({ data, index }) => {
       <>
         <Img img={img}>
           <ButtonSvgWrapper
+            animate={{
+              scale: checked ? 1.4 : 1,
+              transition: {
+                duration: 0.5,
+              },
+            }}
             onClick={() => {
               setChecked(prevState => !prevState);
 
@@ -64,9 +70,11 @@ const CarListItem = ({ data, index }) => {
           >
             <Svg
               viewBox="0 0 18 18"
-              style={{
-                fill: checked ? '#3470FF' : 'none',
-                stroke: checked ? '#3470FF' : 'white',
+              animate={{
+                fill: checked ? '#3470FF' : 'transparent',
+                transition: {
+                  duration: 0.5,
+                },
               }}
             >
               <path

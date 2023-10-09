@@ -8,7 +8,7 @@ const Favorite = () => {
   return (
     <>
       {favorite.length > 0 ? (
-        <CarList data={favorite}  />
+        <CarList data={favorite} />
       ) : (
         <div>favorite list is empty</div>
       )}
