@@ -36,7 +36,6 @@ export const ButtonSvgWrapper = styled(motion.button)`
 `;
 
 export const Svg = styled(motion.svg)`
-  fill: none;
   stroke: #fff;
 `;
 

@@ -16,7 +16,8 @@ import {
   LiInfo,
   LiRental,
 } from './CarListItem.styled';
-import formatLocation from 'utils/formatLocation';
+
+import { formatMileage, formatLocation } from 'utils';
 import { addCar, removeCar } from 'redux/carsRentSlice/actions';
 
 const CarListItem = ({ data, index }) => {
@@ -39,12 +40,12 @@ const CarListItem = ({ data, index }) => {
     rentalPrice,
     favorite = null,
   } = data;
+
   const city = formatLocation(address)[0];
   const country = formatLocation(address)[1];
-
   const conditions = rentalConditions.split('\n');
-
   const age = conditions[0].slice(-2);
+  const miles = formatMileage(mileage);
 
   const [isOpen, setIsOpen] = useState(false);
   const [checked, setChecked] = useState(favorite);
@@ -59,8 +60,6 @@ const CarListItem = ({ data, index }) => {
     setIsOpen(prevState => !prevState);
   };
 
-  const newMileage = String(mileage).split('');
-  newMileage.splice(1, 0, ',');
 
   return (
     <Li>
@@ -77,7 +76,7 @@ const CarListItem = ({ data, index }) => {
               setChecked(prevState => !prevState);
 
               if (checked) {
-                dispatch(removeCar(data.id));
+                dispatch(removeCar(id));
                 Notiflix.Notify.failure('car removed from favorites');
                 return;
               }
@@ -89,7 +88,7 @@ const CarListItem = ({ data, index }) => {
             <Svg
               viewBox="0 0 18 18"
               animate={{
-                fill: checked ? '#3470FF' : 'transparent',
+                fill: checked ? '#3470FF' : 'none',
                 transition: {
                   duration: 0.5,
                 },
@@ -173,8 +172,7 @@ const CarListItem = ({ data, index }) => {
               <LiRental>{conditions[1]}</LiRental>
               <LiRental>{conditions[2]}</LiRental>
               <LiRental>
-                Milegage:{' '}
-                <Span style={{ fontWeight: '600' }}>{newMileage.join('')}</Span>
+                Milegage: <Span style={{ fontWeight: '600' }}>{miles}</Span>
               </LiRental>
               <LiRental>
                 Pice:{' '}
