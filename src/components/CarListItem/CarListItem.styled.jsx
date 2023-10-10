@@ -7,8 +7,8 @@ export const Li = styled.li`
 
 export const Img = styled.div`
   position: relative;
-  width: 274px;
-  height: 269px;
+  width: ${props => props.width}px;
+  height: ${props => props.height}px;
 
   margin-bottom: 14px;
 
@@ -59,30 +59,59 @@ export const Span = styled.span`
   color: #3470ff;
 `;
 
+export const Description = styled.p`
+  width: 461px;
+  margin-bottom: 24px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 142.857%;
+
+  color: #121417;
+`;
+
 export const Ul = styled.ul`
   display: flex;
   align-items: center;
-  width: 270px;
+  width: ${props => props.width}px;
   flex-wrap: wrap;
   margin: -2px -6px;
-  margin-bottom: 28px;
+
+  margin-bottom: ${props => props.mg_b}px;
 `;
 
 export const LiInfo = styled.li`
   margin: 2px 6px;
-
+  position: relative;
   font-size: 12px;
   font-weight: 400;
   line-height: 150%;
 
   color: rgba(18, 20, 23, 0.5);
+
+  :not(:last-child) {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -6px;
+      width: 1px;
+      height: 16px;
+
+      background: rgba(18, 20, 23, 0.1);
+    }
+  }
 `;
 
-export const SpanInfo = styled.span`
-  width: 1px;
-  height: 16px;
+export const LiRental = styled.li`
+  padding: 7px 14px;
+  margin: 6px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.24px;
 
-  background: rgba(18, 20, 23, 0.1);
+  color: #363535;
 `;
 
 export const Button = styled.button`

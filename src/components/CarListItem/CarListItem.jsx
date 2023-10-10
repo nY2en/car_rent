@@ -8,11 +8,12 @@ import {
   Svg,
   Div,
   P,
+  Description,
   Span,
   Ul,
   Button,
   LiInfo,
-  SpanInfo,
+  LiRental,
 } from './CarListItem.styled';
 import formatArrayData from 'utils/formatArrayData';
 import { addCar, removeCar } from 'redux/carsRentSlice/actions';
@@ -22,6 +23,7 @@ const CarListItem = ({ data, index }) => {
     img,
     make,
     model,
+    description,
     year,
     rentalPrice,
     address,
@@ -29,9 +31,19 @@ const CarListItem = ({ data, index }) => {
     type,
     id,
     favorite = null,
+    engineSize,
+    fuelConsumption,
+    accessories,
+    functionalities,
+    rentalConditions,
+    mileage,
   } = data;
   const city = formatArrayData(address)[0];
   const country = formatArrayData(address)[1];
+
+  const conditions = rentalConditions.split('\n');
+
+  const age = conditions[0].slice(-2);
 
   const [isOpen, setIsOpen] = useState(false);
   const [checked, setChecked] = useState(favorite);
@@ -46,10 +58,13 @@ const CarListItem = ({ data, index }) => {
     setIsOpen(prevState => !prevState);
   };
 
+  const newMileage = String(mileage).split('');
+  newMileage.splice(1, 0, ',');
+
   return (
     <Li>
       <>
-        <Img img={img}>
+        <Img img={img} width={274} height={268}>
           <ButtonSvgWrapper
             animate={{
               scale: checked ? 1.4 : 1,
@@ -94,34 +109,86 @@ const CarListItem = ({ data, index }) => {
           </P>
           <P>{rentalPrice}</P>
         </Div>
-        <Ul>
+        <Ul width={270} mg_b={28}>
           <LiInfo>{city}</LiInfo>
-
-          <SpanInfo></SpanInfo>
 
           <LiInfo>{country}</LiInfo>
 
-          <SpanInfo></SpanInfo>
-
           <LiInfo>{rentalCompany}</LiInfo>
-
-          <SpanInfo></SpanInfo>
 
           <LiInfo>{type}</LiInfo>
 
-          <SpanInfo></SpanInfo>
-
           <LiInfo>{model}</LiInfo>
 
-          <SpanInfo></SpanInfo>
-
           <LiInfo>{id}</LiInfo>
+
+          <LiInfo>{engineSize}</LiInfo>
         </Ul>
 
         <Button onClick={handleBtnClick}>Learn more</Button>
       </>
 
-      {isOpen && <Modal toggle={setIsOpen}>{model}</Modal>}
+      {isOpen && (
+        <Modal toggle={handleBtnClick}>
+          <div style={{ padding: '40px' }}>
+            <Img img={img} width={480} height={248} />
+
+            <P style={{ marginBottom: '8px' }}>
+              {make}
+              {index >= 3 && <>,</>} {index < 3 && <Span>{model},</Span>} {year}
+            </P>
+
+            <Ul width={380} mg_b={14}>
+              <LiInfo>{city}</LiInfo>
+              <LiInfo>{country}</LiInfo>
+              <LiInfo>id: {id}</LiInfo>
+              <LiInfo>Year: {year}</LiInfo>
+              <LiInfo>Type: {type}</LiInfo>
+              <LiInfo>Fuel Consumption: {fuelConsumption}</LiInfo>
+              <LiInfo>Engine Size: {engineSize}</LiInfo>
+            </Ul>
+
+            <Description>{description}</Description>
+
+            <Description style={{ fontWeight: '500', marginBottom: '8px' }}>
+              Accessories and functionalities:
+            </Description>
+
+            <Ul width={461} mg_b={24}>
+              <LiInfo>{accessories[0]}</LiInfo>
+              <LiInfo>{accessories[1]}</LiInfo>
+              <LiInfo>{functionalities[0]}</LiInfo>
+              <LiInfo>{accessories[2]}</LiInfo>
+              <LiInfo>{functionalities[1]}</LiInfo>
+              <LiInfo>{functionalities[2]}</LiInfo>
+            </Ul>
+
+            <Description>Rental Conditions: </Description>
+
+            <Ul
+              width={480}
+              mg_b={24}
+              style={{ margin: '-6px', marginBottom: '24px' }}
+            >
+              <LiRental>
+                Minimum age: <Span style={{ fontWeight: '600' }}>{age}</Span>
+              </LiRental>
+              <LiRental>{conditions[1]}</LiRental>
+              <LiRental>{conditions[2]}</LiRental>
+              <LiRental>
+                Milegage:{' '}
+                <Span style={{ fontWeight: '600' }}>{newMileage.join('')}</Span>
+              </LiRental>
+              <LiRental>
+                Pice:{' '}
+                <Span style={{ fontWeight: '600' }}>
+                  {rentalPrice.slice(-3)}$
+                </Span>
+              </LiRental>
+            </Ul>
+          </div>
+        </Modal>
+      )}
     </Li>
   );
 };

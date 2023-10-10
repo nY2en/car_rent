@@ -15,8 +15,6 @@ export const Backdrop = styled(motion.div)`
 `;
 
 export const ContentWrapper = styled(motion.div)`
-  width: 541px;
-  height: 400px;
   border-radius: 24px;
 
   background: #fff;
