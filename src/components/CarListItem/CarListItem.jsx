@@ -21,23 +21,23 @@ import { addCar, removeCar } from 'redux/carsRentSlice/actions';
 
 const CarListItem = ({ data, index }) => {
   const {
+    id,
+    description,
     img,
     make,
     model,
-    description,
-    year,
-    rentalPrice,
-    address,
-    rentalCompany,
     type,
-    id,
-    favorite = null,
+    year,
     engineSize,
     fuelConsumption,
-    accessories,
-    functionalities,
-    rentalConditions,
     mileage,
+    functionalities,
+    accessories,
+    address,
+    rentalCompany,
+    rentalConditions,
+    rentalPrice,
+    favorite = null,
   } = data;
   const city = formatLocation(address)[0];
   const country = formatLocation(address)[1];
