@@ -8,6 +8,7 @@ import {
   selectIsLoading,
   selectFavoriteCars,
 } from 'redux/carsRentSlice/selectors';
+import { PageWrapper } from './Catalog.styled';
 
 const Catalog = () => {
   const [count, setCount] = useState(7);
@@ -33,14 +34,14 @@ const Catalog = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <PageWrapper>
       {!isLoading && (
         <>
           <CarList data={updatedArr} count={count} />
           {count < updatedArr.length - 1 && <LoadMoreBtn setCount={setCount} />}
         </>
       )}
-    </>
+    </PageWrapper>
   );
 };
 

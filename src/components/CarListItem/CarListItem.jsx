@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Notiflix from 'notiflix';
 import Modal from 'components/Modal/Modal';
 import {
   Li,
@@ -15,7 +16,7 @@ import {
   LiInfo,
   LiRental,
 } from './CarListItem.styled';
-import formatArrayData from 'utils/formatArrayData';
+import formatLocation from 'utils/formatLocation';
 import { addCar, removeCar } from 'redux/carsRentSlice/actions';
 
 const CarListItem = ({ data, index }) => {
@@ -38,8 +39,8 @@ const CarListItem = ({ data, index }) => {
     rentalConditions,
     mileage,
   } = data;
-  const city = formatArrayData(address)[0];
-  const country = formatArrayData(address)[1];
+  const city = formatLocation(address)[0];
+  const country = formatLocation(address)[1];
 
   const conditions = rentalConditions.split('\n');
 
@@ -77,10 +78,12 @@ const CarListItem = ({ data, index }) => {
 
               if (checked) {
                 dispatch(removeCar(data.id));
+                Notiflix.Notify.failure('car removed from favorites');
                 return;
               }
 
               dispatch(addCar({ ...data, favorite: !checked }));
+              Notiflix.Notify.success('you added car to favorites');
             }}
           >
             <Svg
@@ -111,17 +114,11 @@ const CarListItem = ({ data, index }) => {
         </Div>
         <Ul width={270} mg_b={28}>
           <LiInfo>{city}</LiInfo>
-
           <LiInfo>{country}</LiInfo>
-
           <LiInfo>{rentalCompany}</LiInfo>
-
           <LiInfo>{type}</LiInfo>
-
           <LiInfo>{model}</LiInfo>
-
           <LiInfo>{id}</LiInfo>
-
           <LiInfo>{engineSize}</LiInfo>
         </Ul>
 

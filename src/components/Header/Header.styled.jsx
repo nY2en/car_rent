@@ -2,13 +2,13 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const HeaderWrapper = styled.header`
-  background: #3470ff;
+  background: #4e93ba;
   box-shadow: rgba(0, 0, 0, 0.4) 4px 7px 10px;
 `;
 
 export const Nav = styled.nav`
   display: flex;
-  width: 1440px;
+  max-width: 1440px;
   padding: 24px 128px;
   margin: 0 auto;
 `;
@@ -20,7 +20,7 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   &:not(:last-child) {
-    margin-right: 20px;
+    margin-right: 69px;
   }
 `;
 
@@ -28,10 +28,20 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
 
   color: #fff;
-  font-size: 24;
+  font-size: 24px;
   font-weight: 700;
 
   &.active {
-    color: #ff00ff;
+    color: #ff4d00;
   }
+`;
+
+export const LogoStyled = styled(NavLink)`
+  display: flex;
+
+  font-family: 'Racing Sans One';
+  font-size: 24px;
+  font-weight: 400;
+
+  color: #fff;
 `;
