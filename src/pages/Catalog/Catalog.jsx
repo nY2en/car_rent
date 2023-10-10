@@ -37,7 +37,7 @@ const Catalog = () => {
       {!isLoading && (
         <>
           <CarList data={updatedArr} count={count} />
-          <LoadMoreBtn setCount={setCount} />
+          {count < updatedArr.length - 1 && <LoadMoreBtn setCount={setCount} />}
         </>
       )}
     </>
