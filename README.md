@@ -30,7 +30,7 @@ CATALOG_PAGE
 
 FAVORITES_PAGE
 
-![image](https://github.com/nY2en/car_rent/assets/110260850/64c5119f-00d4-49ad-8aed-494e9cf4609b)
+![image](https://github.com/nY2en/car_rent/assets/110260850/378a1452-bf4d-4204-852d-96b07388e66f)
 
 MODAL
 
