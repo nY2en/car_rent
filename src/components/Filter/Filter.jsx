@@ -10,7 +10,13 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import { FilterWrapper, stylesMake, stylesPrice, Input, P } from './Filter.styled';
+import {
+  FilterWrapper,
+  stylesMake,
+  stylesPrice,
+  Input,
+  P,
+} from './Filter.styled';
 
 import Btn from 'components/Btn';
 
@@ -68,6 +74,7 @@ const Filter = () => {
       <div>
         <P>Сar mileage / km</P>
         <form
+          style={{ marginTop: '16px' }}
           onSubmit={e => {
             e.preventDefault();
             let from = e.target.elements.from.value;

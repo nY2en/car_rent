@@ -6,7 +6,7 @@ const commonStyles = {
     borderRadius: '14px',
     backgroundColor: '#F7F7FB',
     border: 'none',
-    marginBottom: '4px',
+
     marginRight: '18px',
   }),
   valueContainer: styles => ({
@@ -96,10 +96,11 @@ export const Input = styled.input`
 `;
 
 export const P = styled.p`
-  color: #8a8a89;
-  ${'' /* font-family: Manrope; */}
-  font-size: 14px;
+  margin-bottom: 8px;
 
+  font-size: 14px;
   font-weight: 500;
   line-height: 18px;
+
+  color: #8a8a89;
 `;
