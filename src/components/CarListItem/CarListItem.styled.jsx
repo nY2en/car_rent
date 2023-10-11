@@ -139,7 +139,8 @@ export const A = styled.a`
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.1);
     background: #0b44cd;
   }
