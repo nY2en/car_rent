@@ -4,9 +4,9 @@ import API from 'redux/carsRentSlice/operations';
 import CarList from 'components/CarList/';
 import LoadMoreBtn from 'components/LoadMoreBtn';
 import {
-  selectCars,
+  selectFilterMake,
   selectIsLoading,
-  selectFavoriteCars,
+  selectVisibleCars,
 } from 'redux/carsRentSlice/selectors';
 import { PageWrapper } from './Catalog.styled';
 import Filter from 'components/Filter';
@@ -16,19 +16,12 @@ const Catalog = () => {
 
   const dispatch = useDispatch();
 
-  const data = useSelector(selectCars);
+  const filter = useSelector(selectFilterMake);
+
+  console.log(filter);
+
+  const cars = useSelector(selectVisibleCars);
   const isLoading = useSelector(selectIsLoading);
-  const favorite = useSelector(selectFavoriteCars);
-
-  const cars = [...data];
-
-  if (favorite.length > 0) {
-    for (const key of favorite) {
-      const idx = data.findIndex(el => el.id === key.id);
-
-      cars.splice(idx, 1, key);
-    }
-  }
 
   useEffect(() => {
     dispatch(API.fetchCars());
