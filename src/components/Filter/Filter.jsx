@@ -23,9 +23,9 @@ const makes = brands.map(el => {
 });
 
 const Filter = () => {
-  const dispatch = useDispatch();
+  const [reset, setReset] = useState(false);
 
-  const [submitted, setSubmitted] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <FilterWrapper>
@@ -61,17 +61,16 @@ const Filter = () => {
       <form
         onSubmit={e => {
           e.preventDefault();
+          let from = e.target.elements.from.value;
+          let to = e.target.elements.to.value;
 
-          if (submitted) {
+          if (reset) {
             e.target.elements.from.value = '';
             e.target.elements.to.value = '';
             dispatch(filterMileage({ from: '', to: '100000' }));
-            setSubmitted(false);
+            setReset(false);
             return;
           }
-
-          let from = e.target.elements.from.value;
-          let to = e.target.elements.to.value;
 
           if (from === '' && to === '') {
             dispatch(filterMileage({ from: '', to: '100000' }));
@@ -88,16 +87,20 @@ const Filter = () => {
           };
 
           dispatch(filterMileage(mileage));
-
-          setSubmitted(true);
         }}
       >
         <Input left placeholder="From" name="from" />
         <Input placeholder="To" name="to" />
 
-        <button>{submitted ? 'Reset' : 'Submit'}</button>
+        <button>Submit</button>
 
-        <button>{submitted ? 'Reset' : 'Submit'}</button>
+        <button
+          onClick={() => {
+            setReset(true);
+          }}
+        >
+          Reset
+        </button>
       </form>
     </FilterWrapper>
   );
