@@ -61,6 +61,7 @@ const CarListItem = ({ data, index }) => {
 
   const SVG_ANIMATION_OPTIONS = {
     fill: checked ? '#3470FF' : 'none',
+    stroke: checked ? '#3470FF' : '#fff',
     transition: {
       duration: 0.5,
     },
