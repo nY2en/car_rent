@@ -62,6 +62,7 @@ export const Span = styled.span`
 `;
 
 export const ModalContent = styled.div`
+  position: relative;
   padding: 40px;
 `;
 
@@ -142,4 +143,22 @@ export const A = styled.a`
     transform: scale(1.1);
     background: #0b44cd;
   }
+`;
+
+export const CloseSvgWrapper = styled.button`
+  position: absolute;
+  top: 16px;
+  left: 501px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
+  }
+`;
+
+export const CloseSvg = styled.svg`
+  width: 24px;
+  height: 24px;
 `;

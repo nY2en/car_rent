@@ -17,6 +17,8 @@ import {
   LiInfo,
   LiRental,
   A,
+  CloseSvgWrapper,
+  CloseSvg,
 } from './CarListItem.styled';
 import sprite from 'assets/sprite.svg';
 import { formatMileage, formatLocation } from 'utils';
@@ -124,6 +126,11 @@ const CarListItem = ({ data, index }) => {
       {isOpen && (
         <Modal toggle={handleBtnClick}>
           <ModalContent>
+            <CloseSvgWrapper onClick={handleBtnClick}>
+              <CloseSvg>
+                <use href={sprite + '#cross'}></use>
+              </CloseSvg>
+            </CloseSvgWrapper>
             <Img img={img} width={461} height={248} />
 
             <P mg_b={8}>
