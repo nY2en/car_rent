@@ -46,6 +46,7 @@ const CarListItem = ({ data, index }) => {
   const conditions = rentalConditions.split('\n');
   const age = conditions[0].slice(-2);
   const miles = formatMileage(mileage);
+  const priceDollarSymbolAfter= rentalPrice.slice(-3)
 
   const [isOpen, setIsOpen] = useState(false);
   const [checked, setChecked] = useState(favorite);
@@ -59,7 +60,6 @@ const CarListItem = ({ data, index }) => {
   const handleBtnClick = () => {
     setIsOpen(prevState => !prevState);
   };
-
 
   return (
     <Li>
@@ -129,7 +129,7 @@ const CarListItem = ({ data, index }) => {
           <div style={{ padding: '40px' }}>
             <Img img={img} width={480} height={248} />
 
-            <P style={{ marginBottom: '8px' }}>
+            <P mg_b={8}>
               {make}
               {index >= 3 && <>,</>} {index < 3 && <Span>{model},</Span>} {year}
             </P>
@@ -162,23 +162,20 @@ const CarListItem = ({ data, index }) => {
             <Description>Rental Conditions: </Description>
 
             <Ul
-              width={480}
+              width={461}
               mg_b={24}
               style={{ margin: '-6px', marginBottom: '24px' }}
             >
               <LiRental>
-                Minimum age: <Span style={{ fontWeight: '600' }}>{age}</Span>
+                Minimum age: <Span fw={600}>{age}</Span>
               </LiRental>
               <LiRental>{conditions[1]}</LiRental>
               <LiRental>{conditions[2]}</LiRental>
               <LiRental>
-                Milegage: <Span style={{ fontWeight: '600' }}>{miles}</Span>
+                Milegage: <Span fw={600}>{miles}</Span>
               </LiRental>
               <LiRental>
-                Pice:{' '}
-                <Span style={{ fontWeight: '600' }}>
-                  {rentalPrice.slice(-3)}$
-                </Span>
+                Pice: <Span fw={600}>{priceDollarSymbolAfter}$</Span>
               </LiRental>
             </Ul>
           </div>

@@ -52,9 +52,13 @@ export const P = styled.p`
   line-height: 150%;
 
   color: #121417;
+
+  margin-bottom: ${props => (props.mg_b ? props.mg_b : 0)}px;
 `;
 
 export const Span = styled.span`
+  font-weight: ${props => props.fw};
+
   color: #3470ff;
 `;
 
