@@ -30,8 +30,11 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
 
   color: #fff;
+
   &.active {
-    color: #ff4d00;
+    border: 2px solid #ff4d00;
+    border-radius: 10px;
+    padding: 4px 8px;
   }
 `;
 

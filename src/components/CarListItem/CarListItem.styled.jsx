@@ -9,7 +9,6 @@ export const Img = styled.div`
   position: relative;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
-
   margin-bottom: 14px;
 
   background: aqua;
@@ -28,7 +27,6 @@ export const Img = styled.div`
 
 export const ButtonSvgWrapper = styled(motion.button)`
   position: absolute;
-
   top: 14px;
   right: 5%;
   width: 18px;
@@ -50,13 +48,13 @@ export const Div = styled.div`
 `;
 
 export const P = styled.p`
+  margin-bottom: ${props => (props.mg_b ? props.mg_b : 0)}px;
+
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
 
   color: #121417;
-
-  margin-bottom: ${props => (props.mg_b ? props.mg_b : 0)}px;
 `;
 
 export const Span = styled.span`
@@ -70,8 +68,8 @@ export const ModalContent = styled.div`
 `;
 
 export const Description = styled.p`
-  width: 461px;
   margin-bottom: ${props => props.mg_b}px;
+  width: 461px;
 
   font-size: 14px;
   font-weight: ${props => (props.fw ? props.fw : 400)};
@@ -91,8 +89,9 @@ export const Ul = styled.ul`
 `;
 
 export const LiInfo = styled.li`
-  margin: 2px 6px;
   position: relative;
+  margin: 2px 6px;
+
   font-size: 12px;
   font-weight: 400;
   line-height: 150%;
@@ -116,6 +115,7 @@ export const LiInfo = styled.li`
 export const LiRental = styled.li`
   padding: 7px 14px;
   margin: 6px;
+
   font-size: 12px;
   font-weight: 400;
   line-height: 150%;
@@ -139,12 +139,14 @@ export const Button = styled.button`
 `;
 
 export const A = styled.a`
-  border-radius: 12px;
-  background: #3470ff;
   padding: 12px 50px;
 
   font-size: 14px;
   font-weight: 600;
   line-height: 142.857%;
+
+  border-radius: 12px;
+
+  background: #3470ff;
   color: #fff;
 `;
