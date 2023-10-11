@@ -13,6 +13,7 @@ export const theme = extendTheme({
       'html, body': {
         color: 'gray.900',
         lineHeight: 'tall',
+        fontFamily: 'Manrope',
       },
       ul: {
         listStyle: 'none',

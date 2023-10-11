@@ -14,13 +14,13 @@ import {
   Description,
   Span,
   Ul,
-  Button,
   LiInfo,
   LiRental,
   A,
 } from './CarListItem.styled';
 import sprite from 'assets/sprite.svg';
 import { formatMileage, formatLocation } from 'utils';
+import Btn from 'components/Btn';
 
 const CarListItem = ({ data, index }) => {
   const {
@@ -117,7 +117,7 @@ const CarListItem = ({ data, index }) => {
           <LiInfo>{engineSize}</LiInfo>
         </Ul>
 
-        <Button onClick={handleBtnClick}>Learn more</Button>
+        <Btn onClick={handleBtnClick} title={'Learn more'} pv={12} ph={99} />
       </>
 
       {isOpen && (

@@ -7,6 +7,7 @@ const commonStyles = {
     backgroundColor: '#F7F7FB',
     border: 'none',
     marginBottom: '4px',
+    marginRight: '18px',
   }),
   valueContainer: styles => ({
     ...styles,
@@ -73,6 +74,8 @@ export const Input = styled.input`
   height: 48px;
   padding: 14px 41px 14px 24px;
 
+  margin-right: 18px;
+
   border-radius: ${props =>
     props.left ? '14px 0px 0px 14px' : ' 0px 14px 14px 0px;'};
 
@@ -90,4 +93,13 @@ export const Input = styled.input`
 
     color: #121417;
   }
+`;
+
+export const P = styled.p`
+  color: #8a8a89;
+  ${'' /* font-family: Manrope; */}
+  font-size: 14px;
+
+  font-weight: 500;
+  line-height: 18px;
 `;

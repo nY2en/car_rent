@@ -33,4 +33,10 @@ export const StyledLink = styled(NavLink)`
   border-radius: 12px;
   background: #4e93ba;
   color: #fff;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

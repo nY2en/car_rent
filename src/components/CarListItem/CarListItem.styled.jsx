@@ -124,26 +124,6 @@ export const LiRental = styled.li`
   color: #363535;
 `;
 
-export const Button = styled.button`
-  padding: 12px 99px;
-
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 142.857%;
-
-  border: none;
-  border-radius: 12px;
-
-  background: #3470ff;
-  color: #fff;
-
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
-
 export const A = styled.a`
   padding: 12px 50px;
   display: inline-block;

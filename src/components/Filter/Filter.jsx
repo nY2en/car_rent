@@ -10,7 +10,9 @@ import {
 
 import { useDispatch } from 'react-redux';
 
-import { FilterWrapper, stylesMake, stylesPrice, Input } from './Filter.styled';
+import { FilterWrapper, stylesMake, stylesPrice, Input, P } from './Filter.styled';
+
+import Btn from 'components/Btn';
 
 const prices = [];
 for (let index = 1; index < 13; index += 1) {
@@ -29,79 +31,87 @@ const Filter = () => {
 
   return (
     <FilterWrapper>
-      <Select
-        isClearable={true}
-        placeholder="Enter the text"
-        options={makes}
-        styles={stylesMake}
-        onChange={e => {
-          if (!e) {
-            dispatch(filterMake(''));
-            return;
-          }
+      <div>
+        <P>Car brand</P>
+        <Select
+          isClearable={true}
+          placeholder="Enter the text"
+          options={makes}
+          styles={stylesMake}
+          onChange={e => {
+            if (!e) {
+              dispatch(filterMake(''));
+              return;
+            }
 
-          dispatch(filterMake(e.value));
-        }}
-      ></Select>
+            dispatch(filterMake(e.value));
+          }}
+        ></Select>
+      </div>
+      <div>
+        <P>Price/ 1 hour</P>
+        <Select
+          styles={stylesPrice}
+          isClearable={true}
+          placeholder="To $"
+          options={prices}
+          onChange={e => {
+            if (!e) {
+              dispatch(filterPrice(1000));
+              return;
+            }
 
-      <Select
-        styles={stylesPrice}
-        isClearable={true}
-        placeholder="To $"
-        options={prices}
-        onChange={e => {
-          if (!e) {
-            dispatch(filterPrice(1000));
-            return;
-          }
+            dispatch(filterPrice(e.value));
+          }}
+        ></Select>
+      </div>
+      <div>
+        <P>Сar mileage / km</P>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            let from = e.target.elements.from.value;
+            let to = e.target.elements.to.value;
 
-          dispatch(filterPrice(e.value));
-        }}
-      ></Select>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          let from = e.target.elements.from.value;
-          let to = e.target.elements.to.value;
+            if (reset) {
+              e.target.elements.from.value = '';
+              e.target.elements.to.value = '';
+              dispatch(filterMileage({ from: '', to: '100000' }));
+              setReset(false);
+              return;
+            }
 
-          if (reset) {
-            e.target.elements.from.value = '';
-            e.target.elements.to.value = '';
-            dispatch(filterMileage({ from: '', to: '100000' }));
-            setReset(false);
-            return;
-          }
+            if (from === '' && to === '') {
+              dispatch(filterMileage({ from: '', to: '100000' }));
+              return;
+            }
 
-          if (from === '' && to === '') {
-            dispatch(filterMileage({ from: '', to: '100000' }));
-            return;
-          }
+            if (to === '') {
+              to = 10000;
+            }
 
-          if (to === '') {
-            to = 10000;
-          }
+            const mileage = {
+              from,
+              to,
+            };
 
-          const mileage = {
-            from,
-            to,
-          };
-
-          dispatch(filterMileage(mileage));
-        }}
-      >
-        <Input left placeholder="From" name="from" />
-        <Input placeholder="To" name="to" />
-
-        <button>Submit</button>
-
-        <button
-          onClick={() => {
-            setReset(true);
+            dispatch(filterMileage(mileage));
           }}
         >
-          Reset
-        </button>
-      </form>
+          <Input left placeholder="From" name="from" />
+          <Input placeholder="To" name="to" />
+          <Btn ph={44} pv={14} title={'Search'} mg_r={18} />
+
+          <Btn
+            title={'Reset'}
+            ph={44}
+            pv={14}
+            onClick={() => {
+              setReset(true);
+            }}
+          />
+        </form>
+      </div>
     </FilterWrapper>
   );
 };
