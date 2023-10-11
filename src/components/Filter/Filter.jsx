@@ -1,7 +1,7 @@
 import Select from 'react-select';
 
 import brands from 'makes.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   filterMake,
   filterPrice,
@@ -34,6 +34,14 @@ const Filter = () => {
   const [reset, setReset] = useState(false);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => {
+      dispatch(filterMake(''));
+      dispatch(filterPrice(1000));
+      dispatch(filterMileage({ from: '', to: '100000' }));
+    };
+  }, []);
 
   return (
     <FilterWrapper>
