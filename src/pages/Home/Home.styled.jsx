@@ -30,4 +30,11 @@ export const H1 = styled.h1`
 
 export const StyledLink = styled(NavLink)`
   color: #4e93ba;
+  display: inline-block;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
