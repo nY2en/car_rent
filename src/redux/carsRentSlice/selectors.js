@@ -11,8 +11,8 @@ export const selectFilterPrice = state => state.carsRent.filter.price;
 export const selectVisibleCars = state => {
   let cars = selectCars(state);
   let favorite = selectFavoriteCars(state);
-  const filteredMake = selectFilterMake(state);
-  const filteredPrice = selectFilterPrice(state);
+  const make = selectFilterMake(state);
+  const price = selectFilterPrice(state);
 
   let mutedCars = [...cars];
 
@@ -23,8 +23,8 @@ export const selectVisibleCars = state => {
   }
 
   const filtered = mutedCars
-    .filter(el => el.make.includes(filteredMake))
-    .filter(el => el.rentalPrice.slice(1, 4) <= filteredPrice);
+    .filter(el => el.make.includes(make))
+    .filter(el => el.rentalPrice.slice(1, 4) <= price);
 
   return filtered;
 };
