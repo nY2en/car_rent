@@ -11,15 +11,15 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from 'theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  <BrowserRouter basename="/car_rent">
-    <ChakraProvider theme={theme}>
-      <Provider store={redux.store}>
-        <PersistGate persistor={redux.persistor}>
-          <App />
-        </PersistGate>
-      </Provider>
-    </ChakraProvider>
-  </BrowserRouter>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter basename="/car_rent">
+      <ChakraProvider theme={theme}>
+        <Provider store={redux.store}>
+          <PersistGate persistor={redux.persistor}>
+            <App />
+          </PersistGate>
+        </Provider>
+      </ChakraProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
