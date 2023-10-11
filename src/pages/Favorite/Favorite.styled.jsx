@@ -31,6 +31,7 @@ export const StyledLink = styled(NavLink)`
   line-height: 142.857%;
 
   border-radius: 12px;
+  
   background: #4e93ba;
   color: #fff;
 

@@ -1,15 +1,13 @@
-import Select from 'react-select';
-
-import brands from 'makes.json';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import Select from 'react-select';
 import {
   filterMake,
   filterPrice,
   filterMileage,
 } from 'redux/carsRentSlice/actions';
-
-import { useDispatch } from 'react-redux';
-
+import brands from 'makes.json';
+import Btn from 'components/Btn';
 import {
   FilterWrapper,
   stylesMake,
@@ -17,21 +15,13 @@ import {
   Input,
   P,
 } from './Filter.styled';
+import { generatePriceList } from 'utils';
 
-import Btn from 'components/Btn';
-
-const prices = [];
-for (let index = 1; index < 13; index += 1) {
-  const price = index * 10;
-  prices.push({ value: price, label: price });
-}
-
-const makes = brands.map(el => {
-  return { label: el, value: el };
-});
+const MAKES = brands.map(el => ({ label: el, value: el }));
+const PRICES = generatePriceList(13);
 
 const Filter = () => {
-  const [reset, setReset] = useState(false);
+  const [shouldReset, setShouldReset] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -43,6 +33,54 @@ const Filter = () => {
     };
   }, [dispatch]);
 
+  const handleMakeSelect = e => {
+    if (!e) {
+      dispatch(filterMake(''));
+      return;
+    }
+
+    dispatch(filterMake(e.value));
+  };
+
+  const handlePriceSelect = e => {
+    if (!e) {
+      dispatch(filterPrice(1000));
+      return;
+    }
+
+    dispatch(filterPrice(e.value));
+  };
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    let from = e.target.elements.from.value;
+    let to = e.target.elements.to.value;
+
+    if (shouldReset) {
+      e.target.elements.from.value = '';
+      e.target.elements.to.value = '';
+      dispatch(filterMileage({ from: '', to: '100000' }));
+      setShouldReset(false);
+      return;
+    }
+
+    if (from === '' && to === '') {
+      dispatch(filterMileage({ from: '', to: '100000' }));
+      return;
+    }
+
+    if (to === '') {
+      to = 10000;
+    }
+
+    const mileage = {
+      from,
+      to,
+    };
+
+    dispatch(filterMileage(mileage));
+  };
+
   return (
     <FilterWrapper>
       <div>
@@ -50,16 +88,9 @@ const Filter = () => {
         <Select
           isClearable={true}
           placeholder="Enter the text"
-          options={makes}
+          options={MAKES}
           styles={stylesMake}
-          onChange={e => {
-            if (!e) {
-              dispatch(filterMake(''));
-              return;
-            }
-
-            dispatch(filterMake(e.value));
-          }}
+          onChange={handleMakeSelect}
         ></Select>
       </div>
       <div>
@@ -68,51 +99,13 @@ const Filter = () => {
           styles={stylesPrice}
           isClearable={true}
           placeholder="To $"
-          options={prices}
-          onChange={e => {
-            if (!e) {
-              dispatch(filterPrice(1000));
-              return;
-            }
-
-            dispatch(filterPrice(e.value));
-          }}
+          options={PRICES}
+          onChange={handlePriceSelect}
         ></Select>
       </div>
       <div>
         <P>Сar mileage / km</P>
-        <form
-          style={{ marginTop: '16px' }}
-          onSubmit={e => {
-            e.preventDefault();
-            let from = e.target.elements.from.value;
-            let to = e.target.elements.to.value;
-
-            if (reset) {
-              e.target.elements.from.value = '';
-              e.target.elements.to.value = '';
-              dispatch(filterMileage({ from: '', to: '100000' }));
-              setReset(false);
-              return;
-            }
-
-            if (from === '' && to === '') {
-              dispatch(filterMileage({ from: '', to: '100000' }));
-              return;
-            }
-
-            if (to === '') {
-              to = 10000;
-            }
-
-            const mileage = {
-              from,
-              to,
-            };
-
-            dispatch(filterMileage(mileage));
-          }}
-        >
+        <form style={{ marginTop: '16px' }} onSubmit={handleFormSubmit}>
           <Input left placeholder="From" name="from" />
           <Input placeholder="To" name="to" />
           <Btn ph={44} pv={14} title={'Search'} mg_r={18} />
@@ -122,7 +115,7 @@ const Filter = () => {
             ph={44}
             pv={14}
             onClick={() => {
-              setReset(true);
+              setShouldReset(true);
             }}
           />
         </form>

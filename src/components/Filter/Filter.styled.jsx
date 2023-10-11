@@ -57,7 +57,7 @@ export const stylesPrice = {
   ...commonStyles,
   control: styles => ({
     ...commonStyles.control(styles),
-    width: '145px',
+    width: '125px',
   }),
 };
 
