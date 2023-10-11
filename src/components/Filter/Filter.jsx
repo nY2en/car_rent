@@ -7,7 +7,7 @@ import { filterMake } from 'redux/carsRentSlice/actions';
 import { useDispatch } from 'react-redux';
 
 const makes = brands.map(el => {
-  return { label: el, value: el.toLowerCase() };
+  return { label: el, value: el };
 });
 
 const Filter = () => {
