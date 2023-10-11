@@ -6,10 +6,13 @@ export const selectFavoriteCars = state => state.carsRent.favorite;
 
 export const selectFilterMake = state => state.carsRent.filter.make;
 
+export const selectFilterPrice = state => state.carsRent.filter.price;
+
 export const selectVisibleCars = state => {
   let cars = selectCars(state);
   let favorite = selectFavoriteCars(state);
-  const filteredValue = selectFilterMake(state);
+  const filteredMake = selectFilterMake(state);
+  const filteredPrice = selectFilterPrice(state);
 
   let mutedCars = [...cars];
 
@@ -19,7 +22,9 @@ export const selectVisibleCars = state => {
     mutedCars.splice(idx, 1, key);
   }
 
-  const filtered = mutedCars.filter(el => el.make.includes(filteredValue));
+  const filtered = mutedCars
+    .filter(el => el.make.includes(filteredMake))
+    .filter(el => el.rentalPrice.slice(1, 4) <= filteredPrice);
 
   return filtered;
 };

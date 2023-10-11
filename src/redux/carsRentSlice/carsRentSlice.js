@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import API from './operations';
-import { addCar, removeCar, filterMake } from './actions';
+import { addCar, removeCar, filterMake, filterPrice } from './actions';
 
 const carsRentSlice = createSlice({
   name: 'carsRent',
@@ -11,6 +11,7 @@ const carsRentSlice = createSlice({
     favorite: [],
     filter: {
       make: '',
+      price: 1000,
     },
   },
   extraReducers: builder => {
@@ -41,6 +42,10 @@ const carsRentSlice = createSlice({
 
     builder.addCase(filterMake, (state, action) => {
       state.filter.make = action.payload;
+    });
+
+    builder.addCase(filterPrice, (state, action) => {
+      state.filter.price = action.payload;
     });
   },
 });
