@@ -38,7 +38,7 @@ const Header = () => {
           </Li>
 
           <Li>
-            <StyledLink to={'/favorite'}>Favorite</StyledLink>
+            <StyledLink to={'/favorites'}>Favorite</StyledLink>
           </Li>
         </Ul>
       </Nav>
