@@ -12,12 +12,13 @@ import {
   FilterWrapper,
   stylesMake,
   stylesPrice,
+  Form,
   Input,
   P,
 } from './Filter.styled';
-import { generatePriceList } from 'utils';
+import { generatePriceList, generateMakes } from 'utils';
 
-const MAKES = brands.map(el => ({ label: el, value: el }));
+const MAKES = generateMakes(brands);
 const PRICES = generatePriceList(13);
 
 const Filter = () => {
@@ -105,7 +106,7 @@ const Filter = () => {
       </div>
       <div>
         <P>Сar mileage / km</P>
-        <form style={{ marginTop: '16px' }} onSubmit={handleFormSubmit}>
+        <Form onSubmit={handleFormSubmit}>
           <Input left placeholder="From" name="from" />
           <Input placeholder="To" name="to" />
           <Btn ph={44} pv={14} title={'Search'} mg_r={18} />
@@ -118,7 +119,7 @@ const Filter = () => {
               setShouldReset(true);
             }}
           />
-        </form>
+        </Form>
       </div>
     </FilterWrapper>
   );

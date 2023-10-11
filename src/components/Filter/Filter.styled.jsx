@@ -69,6 +69,10 @@ export const FilterWrapper = styled.div`
   margin-bottom: 50px;
 `;
 
+export const Form = styled.form`
+  margin-top: 16px;
+`;
+
 export const Input = styled.input`
   width: 160px;
   height: 48px;
