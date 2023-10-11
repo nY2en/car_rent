@@ -71,10 +71,10 @@ export const ModalContent = styled.div`
 
 export const Description = styled.p`
   width: 461px;
-  margin-bottom: 24px;
+  margin-bottom: ${props => props.mg_b}px;
 
   font-size: 14px;
-  font-weight: 400;
+  font-weight: ${props => (props.fw ? props.fw : 400)};
   line-height: 142.857%;
 
   color: #121417;

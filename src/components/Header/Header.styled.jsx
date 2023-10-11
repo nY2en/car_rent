@@ -25,12 +25,11 @@ export const Li = styled.li`
 `;
 
 export const StyledLink = styled(NavLink)`
+  font-size: 24px;
+  font-weight: 700;
   text-decoration: none;
 
   color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-
   &.active {
     color: #ff4d00;
   }

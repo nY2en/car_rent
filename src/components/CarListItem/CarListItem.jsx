@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { addCar, removeCar } from 'redux/carsRentSlice/actions';
 import Notiflix from 'notiflix';
-import Modal from 'components/Modal/Modal';
+import Modal from 'components/Modal';
 import {
   Li,
   Img,
@@ -19,9 +20,7 @@ import {
   A,
 } from './CarListItem.styled';
 import sprite from 'assets/sprite.svg';
-
 import { formatMileage, formatLocation } from 'utils';
-import { addCar, removeCar } from 'redux/carsRentSlice/actions';
 
 const CarListItem = ({ data, index }) => {
   const {
@@ -54,6 +53,20 @@ const CarListItem = ({ data, index }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [checked, setChecked] = useState(favorite);
 
+  const SVG_WRAPPER_ANIMATION_OPTIONS = {
+    scale: checked ? 1.4 : 1,
+    transition: {
+      duration: 0.5,
+    },
+  };
+
+  const SVG_ANIMATION_OPTIONS = {
+    fill: checked ? '#3470FF' : 'none',
+    transition: {
+      duration: 0.5,
+    },
+  };
+
   const dispatch = useDispatch();
 
   isOpen
@@ -69,12 +82,7 @@ const CarListItem = ({ data, index }) => {
       <>
         <Img img={img} width={274} height={268}>
           <ButtonSvgWrapper
-            animate={{
-              scale: checked ? 1.4 : 1,
-              transition: {
-                duration: 0.5,
-              },
-            }}
+            animate={SVG_WRAPPER_ANIMATION_OPTIONS}
             onClick={() => {
               setChecked(prevState => !prevState);
 
@@ -88,14 +96,7 @@ const CarListItem = ({ data, index }) => {
               Notiflix.Notify.success('you added car to favorites');
             }}
           >
-            <Svg
-              animate={{
-                fill: checked ? '#3470FF' : 'none',
-                transition: {
-                  duration: 0.5,
-                },
-              }}
-            >
+            <Svg animate={SVG_ANIMATION_OPTIONS}>
               <use href={sprite + '#heart'}></use>
             </Svg>
           </ButtonSvgWrapper>
@@ -140,9 +141,9 @@ const CarListItem = ({ data, index }) => {
               <LiInfo>Engine Size: {engineSize}</LiInfo>
             </Ul>
 
-            <Description>{description}</Description>
+            <Description mg_b={24}>{description}</Description>
 
-            <Description style={{ fontWeight: '500', marginBottom: '8px' }}>
+            <Description mg_b={8} fw={500}>
               Accessories and functionalities:
             </Description>
 
@@ -155,8 +156,8 @@ const CarListItem = ({ data, index }) => {
               <LiInfo>{functionalities[2]}</LiInfo>
             </Ul>
 
-            <Description style={{ marginBottom: '8px' }}>
-              Rental Conditions:{' '}
+            <Description mg_b={8} fw={500}>
+              Rental Conditions:
             </Description>
 
             <Ul width={400} mg_b={24}>

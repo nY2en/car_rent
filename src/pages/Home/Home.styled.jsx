@@ -30,22 +30,4 @@ export const H1 = styled.h1`
 
 export const StyledLink = styled(NavLink)`
   color: #4e93ba;
-
-   {
-    -webkit-animation: pulsate 3s ease-out;
-    -webkit-animation-iteration-count: infinite;
-    opacity: 0.5;
-  }
-
-  @-webkit-keyframes {
-    0% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.5;
-    }
-  }
 `;
