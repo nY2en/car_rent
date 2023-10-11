@@ -45,3 +45,9 @@ export const LogoStyled = styled(NavLink)`
 
   color: #fff;
 `;
+
+export const Svg = styled.svg`
+  width: 23px;
+  height: 30px;
+  margin-left: 10px;
+`;

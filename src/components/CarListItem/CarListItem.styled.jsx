@@ -36,6 +36,9 @@ export const ButtonSvgWrapper = styled(motion.button)`
 `;
 
 export const Svg = styled(motion.svg)`
+  width: 18px;
+  height: 18px;
+
   stroke: #fff;
 `;
 
