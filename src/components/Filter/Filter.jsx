@@ -41,7 +41,7 @@ const Filter = () => {
       dispatch(filterPrice(1000));
       dispatch(filterMileage({ from: '', to: '100000' }));
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <FilterWrapper>
