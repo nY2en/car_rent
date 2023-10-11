@@ -27,7 +27,7 @@ export const selectVisibleCars = state => {
 
   const filtered = mutedCars
     .filter(el => el.make.includes(make))
-    .filter(el => el.rentalPrice.slice(1, 4) <= price)
+    .filter(el => el.rentalPrice.slice(1) <= price)
     .filter(el => el.mileage >= mileage.from && el.mileage <= mileage.to);
 
   return filtered;

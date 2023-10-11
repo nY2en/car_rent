@@ -48,7 +48,6 @@ const CarListItem = ({ data, index }) => {
   const conditions = rentalConditions.split('\n');
   const age = conditions[0].slice(-2);
   const miles = formatMileage(mileage);
-  const priceDollarSymbolAfter = rentalPrice.slice(-3);
 
   const [isOpen, setIsOpen] = useState(false);
   const [checked, setChecked] = useState(favorite);
@@ -170,7 +169,7 @@ const CarListItem = ({ data, index }) => {
                 Milegage: <Span fw={600}>{miles}</Span>
               </LiRental>
               <LiRental>
-                Pice: <Span fw={600}>{priceDollarSymbolAfter}$</Span>
+                Pice: <Span fw={600}>{rentalPrice.slice(1)}$</Span>
               </LiRental>
             </Ul>
 
