@@ -4,7 +4,6 @@ import API from 'redux/carsRentSlice/operations';
 import CarList from 'components/CarList/';
 import LoadMoreBtn from 'components/LoadMoreBtn';
 import {
-  selectFilterMake,
   selectIsLoading,
   selectVisibleCars,
 } from 'redux/carsRentSlice/selectors';
@@ -15,10 +14,6 @@ const Catalog = () => {
   const [count, setCount] = useState(7);
 
   const dispatch = useDispatch();
-
-  const filter = useSelector(selectFilterMake);
-
-  console.log(filter);
 
   const cars = useSelector(selectVisibleCars);
   const isLoading = useSelector(selectIsLoading);
