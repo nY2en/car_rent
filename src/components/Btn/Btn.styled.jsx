@@ -16,9 +16,11 @@ export const Button = styled.button`
   background: #3470ff;
   color: #fff;
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: scale(1.1);
+    background: #0b44cd;
   }
 `;
