@@ -19,13 +19,13 @@ const Catalog = () => {
   const isLoading = useSelector(selectIsLoading);
   const favorite = useSelector(selectFavoriteCars);
 
-  const updatedArr = [...data];
+  const cars = [...data];
 
   if (favorite.length > 0) {
     for (const key of favorite) {
       const idx = data.findIndex(el => el.id === key.id);
 
-      updatedArr.splice(idx, 1, key);
+      cars.splice(idx, 1, key);
     }
   }
 
@@ -37,8 +37,8 @@ const Catalog = () => {
     <PageWrapper>
       {!isLoading && (
         <>
-          <CarList data={updatedArr} count={count} />
-          {count < updatedArr.length - 1 && <LoadMoreBtn setCount={setCount} />}
+          <CarList data={cars} count={count} />
+          {count < cars.length - 1 && <LoadMoreBtn setCount={setCount} />}
         </>
       )}
     </PageWrapper>
