@@ -31,7 +31,14 @@ export const StyledLink = styled(NavLink)`
 
   color: #fff;
 
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: #ff4d00;
+  }
+
   &.active {
+    color: #ff4d00;
     border: 2px solid #ff4d00;
     border-radius: 10px;
     padding: 4px 8px;

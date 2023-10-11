@@ -136,11 +136,17 @@ export const Button = styled.button`
 
   background: #3470ff;
   color: #fff;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const A = styled.a`
   padding: 12px 50px;
-
+  display: inline-block;
   font-size: 14px;
   font-weight: 600;
   line-height: 142.857%;
@@ -149,4 +155,10 @@ export const A = styled.a`
 
   background: #3470ff;
   color: #fff;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
