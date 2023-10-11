@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import API from './operations';
-import { addCar, removeCar, filterMake, filterPrice } from './actions';
+import {
+  addCar,
+  removeCar,
+  filterMake,
+  filterPrice,
+  filterMileage,
+} from './actions';
 
 const carsRentSlice = createSlice({
   name: 'carsRent',
@@ -12,6 +18,10 @@ const carsRentSlice = createSlice({
     filter: {
       make: '',
       price: 1000,
+      mileage: {
+        from: '',
+        to: '100000',
+      },
     },
   },
   extraReducers: builder => {
@@ -46,6 +56,9 @@ const carsRentSlice = createSlice({
 
     builder.addCase(filterPrice, (state, action) => {
       state.filter.price = action.payload;
+    });
+    builder.addCase(filterMileage, (state, action) => {
+      state.filter.mileage = action.payload;
     });
   },
 });

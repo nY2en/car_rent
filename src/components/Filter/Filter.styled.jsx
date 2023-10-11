@@ -1,3 +1,5 @@
+import styled from '@emotion/styled';
+
 const commonStyles = {
   control: styles => ({
     ...styles,
@@ -29,6 +31,7 @@ const commonStyles = {
 
   placeholder: styles => ({
     ...styles,
+    fontFamily: 'Manrope',
     fontSize: '18px',
     color: '#121417',
     fontWeight: '500',
@@ -56,3 +59,35 @@ export const stylesPrice = {
     width: '145px',
   }),
 };
+
+export const FilterWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-bottom: 50px;
+`;
+
+export const Input = styled.input`
+  width: 160px;
+  height: 48px;
+  padding: 14px 41px 14px 24px;
+
+  border-radius: ${props =>
+    props.left ? '14px 0px 0px 14px' : ' 0px 14px 14px 0px;'};
+
+  border: none;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    border: 1px solid #2684ff;
+  }
+
+  &::placeholder {
+    font-family: Manrope;
+    font-size: 18px;
+
+    color: #121417;
+  }
+`;
