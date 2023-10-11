@@ -9,12 +9,14 @@ import {
   Svg,
   Div,
   P,
+  ModalContent,
   Description,
   Span,
   Ul,
   Button,
   LiInfo,
   LiRental,
+  A,
 } from './CarListItem.styled';
 import sprite from 'assets/sprite.svg';
 
@@ -120,8 +122,8 @@ const CarListItem = ({ data, index }) => {
 
       {isOpen && (
         <Modal toggle={handleBtnClick}>
-          <div style={{ padding: '40px' }}>
-            <Img img={img} width={480} height={248} />
+          <ModalContent>
+            <Img img={img} width={461} height={248} />
 
             <P mg_b={8}>
               {make}
@@ -153,13 +155,11 @@ const CarListItem = ({ data, index }) => {
               <LiInfo>{functionalities[2]}</LiInfo>
             </Ul>
 
-            <Description>Rental Conditions: </Description>
+            <Description style={{ marginBottom: '8px' }}>
+              Rental Conditions:{' '}
+            </Description>
 
-            <Ul
-              width={461}
-              mg_b={24}
-              style={{ margin: '-6px', marginBottom: '24px' }}
-            >
+            <Ul width={400} mg_b={24}>
               <LiRental>
                 Minimum age: <Span fw={600}>{age}</Span>
               </LiRental>
@@ -172,7 +172,9 @@ const CarListItem = ({ data, index }) => {
                 Pice: <Span fw={600}>{priceDollarSymbolAfter}$</Span>
               </LiRental>
             </Ul>
-          </div>
+
+            <A href="tel:+380730000000">Rental car</A>
+          </ModalContent>
         </Modal>
       )}
     </Li>

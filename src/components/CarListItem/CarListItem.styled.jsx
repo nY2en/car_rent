@@ -65,6 +65,10 @@ export const Span = styled.span`
   color: #3470ff;
 `;
 
+export const ModalContent = styled.div`
+  padding: 40px;
+`;
+
 export const Description = styled.p`
   width: 461px;
   margin-bottom: 24px;
@@ -79,7 +83,7 @@ export const Description = styled.p`
 export const Ul = styled.ul`
   display: flex;
   align-items: center;
-  width: ${props => props.width}px;
+  max-width: ${props => props.width}px;
   flex-wrap: wrap;
   margin: -2px -6px;
 
@@ -131,5 +135,16 @@ export const Button = styled.button`
   border-radius: 12px;
 
   background: #3470ff;
+  color: #fff;
+`;
+
+export const A = styled.a`
+  border-radius: 12px;
+  background: #3470ff;
+  padding: 12px 50px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 142.857%;
   color: #fff;
 `;
