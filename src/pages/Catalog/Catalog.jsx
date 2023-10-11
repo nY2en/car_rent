@@ -9,6 +9,7 @@ import {
   selectFavoriteCars,
 } from 'redux/carsRentSlice/selectors';
 import { PageWrapper } from './Catalog.styled';
+import Filter from 'components/Filter';
 
 const Catalog = () => {
   const [count, setCount] = useState(7);
@@ -37,6 +38,7 @@ const Catalog = () => {
     <PageWrapper>
       {!isLoading && (
         <>
+          <Filter />
           <CarList data={cars} count={count} />
           {count < cars.length - 1 && <LoadMoreBtn setCount={setCount} />}
         </>

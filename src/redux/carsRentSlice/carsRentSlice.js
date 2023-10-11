@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import API from './operations';
-import { addCar, removeCar } from './actions';
+import { addCar, removeCar, filterMake } from './actions';
 
 const carsRentSlice = createSlice({
   name: 'carsRent',
@@ -9,6 +9,9 @@ const carsRentSlice = createSlice({
     isLoading: false,
     error: null,
     favorite: [],
+    filter: {
+      make: '',
+    },
   },
   extraReducers: builder => {
     builder.addCase(API.fetchCars.pending, state => {
@@ -34,6 +37,10 @@ const carsRentSlice = createSlice({
       const indx = state.favorite.findIndex(el => el.id === action.payload);
 
       state.favorite.splice(indx, 1);
+    });
+
+    builder.addCase(filterMake, (state, action) => {
+      state.filter.make = action.payload;
     });
   },
 });
