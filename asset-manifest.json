@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/car_rent/static/css/main.48294955.css",
-    "main.js": "/car_rent/static/js/main.3dfbc34e.js",
-    "static/js/662.46fc57bd.chunk.js": "/car_rent/static/js/662.46fc57bd.chunk.js",
-    "static/js/860.4845726e.chunk.js": "/car_rent/static/js/860.4845726e.chunk.js",
-    "static/js/914.e97333cf.chunk.js": "/car_rent/static/js/914.e97333cf.chunk.js",
+    "main.js": "/car_rent/static/js/main.d3896270.js",
+    "static/js/662.f1b9932a.chunk.js": "/car_rent/static/js/662.f1b9932a.chunk.js",
+    "static/js/860.93d820f6.chunk.js": "/car_rent/static/js/860.93d820f6.chunk.js",
+    "static/js/914.25bc1309.chunk.js": "/car_rent/static/js/914.25bc1309.chunk.js",
     "static/js/686.fb0e3a9c.chunk.js": "/car_rent/static/js/686.fb0e3a9c.chunk.js",
     "static/media/background.jpg": "/car_rent/static/media/background.5c2319906a076bfc59b9.jpg",
     "static/media/racing-sans-one-latin-400-normal.woff2": "/car_rent/static/media/racing-sans-one-latin-400-normal.d13ecac2b3a7c5963cb6.woff2",
@@ -26,14 +26,14 @@
     "static/media/manrope-cyrillic-ext-400-normal.woff2": "/car_rent/static/media/manrope-cyrillic-ext-400-normal.a26a46564e052e1282fa.woff2",
     "index.html": "/car_rent/index.html",
     "main.48294955.css.map": "/car_rent/static/css/main.48294955.css.map",
-    "main.3dfbc34e.js.map": "/car_rent/static/js/main.3dfbc34e.js.map",
-    "662.46fc57bd.chunk.js.map": "/car_rent/static/js/662.46fc57bd.chunk.js.map",
-    "860.4845726e.chunk.js.map": "/car_rent/static/js/860.4845726e.chunk.js.map",
-    "914.e97333cf.chunk.js.map": "/car_rent/static/js/914.e97333cf.chunk.js.map",
+    "main.d3896270.js.map": "/car_rent/static/js/main.d3896270.js.map",
+    "662.f1b9932a.chunk.js.map": "/car_rent/static/js/662.f1b9932a.chunk.js.map",
+    "860.93d820f6.chunk.js.map": "/car_rent/static/js/860.93d820f6.chunk.js.map",
+    "914.25bc1309.chunk.js.map": "/car_rent/static/js/914.25bc1309.chunk.js.map",
     "686.fb0e3a9c.chunk.js.map": "/car_rent/static/js/686.fb0e3a9c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.48294955.css",
-    "static/js/main.3dfbc34e.js"
+    "static/js/main.d3896270.js"
   ]
 }
